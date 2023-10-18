@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="onnxinference-1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/target/classes" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

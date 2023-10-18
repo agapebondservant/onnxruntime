@@ -1,0 +1,24 @@
+onnxruntime/
+java/onnxinference/target/
+java/onnxinference/lib
+rf_fraud.onnx rf_iris.onnx
+java/onnxinference/resources/rf_fraud*
+rf_fraud.onnx
+rf_iris.onnx
+java/onnxinference/resources/rf_fraud_2*
+java/onnxinference/src/main/resources/rf_fraud.onnx java/onnxinference/src/main/resources/rf_fraud_2.onnx java/onnxinference/src/main/resources/rf_fraud_2.ort java/onnxinference/src/main/resources/rf_fraud_2.required_operators.config java/onnxinference/src/main/resources/rf_fraud_2.required_operators.with_runtime_opt.config java/onnxinference/src/main/resources/rf_fraud_2.with_runtime_opt.ort
+java/onnxinference/src/main/out
+java/onnxinference/out
+java/onnxinference/src/main/resources/rf_fraud_2.onnx java/onnxinference/src/main/resources/rf_fraud_2.ort java/onnxinference/src/main/resources/rf_fraud_2.required_operators.config java/onnxinference/src/main/resources/rf_fraud_2.required_operators.with_runtime_opt.config java/onnxinference/src/main/resources/rf_fraud_2.with_runtime_opt.ort
+java/onnxinference/src/main/resources/rf_fraud_2.required_operators.config java/onnxinference/src/main/resources/rf_fraud_2.required_operators.with_runtime_opt.config java/onnxinference/src/main/resources/rf_fraud_2.with_runtime_opt.ort
+java/onnxinference/src/main/resources/rf_fraud_2.onnx java/onnxinference/src/main/resources/rf_fraud_2.ort java/onnxinference/src/main/resources/rf_fraud_2.required_operators.config java/onnxinference/src/main/resources/rf_fraud_2.required_operators.with_runtime_opt.config java/onnxinference/src/main/resources/rf_fraud_2.with_runtime_opt.ort
+java/onnxinference/src/main/resources/rf_fraud_2.onnx
+java/onnxinference/src/main/resources/rf_fraud_2.ort
+java/onnxinference/src/main/resources/rf_fraud_2.required_operators.config
+java/onnxinference/src/main/resources/rf_fraud_2.required_operators.with_runtime_opt
+java/onnxinference/src/main/resources/rf_fraud_2.rf_fraud_2.with_runtime_opt
+java/onnxinference/src/main/resources/rf_fraud_2.with_runtime_opt
+java/onnxinference/src/main/resources/rf_fraud_2.with_runtime_opt.ort
+java/onnxinference/src/main/resources/rf_fraud_2.rf_fraud_2.with_runtime_opt.config
+java/onnxinference/src/main/resources/rf_fraud_2.required_operators.with_runtime_opt.config
+java/.idea

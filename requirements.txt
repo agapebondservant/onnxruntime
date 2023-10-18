@@ -1,0 +1,7 @@
+#https://files.pythonhosted.org/packages/3e/ee/07d0857d53fc70a2041b7a42000cb6b5641e0b3133c238099756fa07cc9b/onnxruntime-1.15.1-cp310-cp310-macosx_10_15_x86_64.whl
+https://files.pythonhosted.org/packages/a5/72/547a5e5620f3e6392ac3d09de0eeb1d468a3013098558a725d8313cddd51/onnxruntime-1.16.1-cp310-cp310-macosx_10_15_x86_64.whl
+skl2onnx
+tf2onnx
+psycopg2
+pandas
+sqlalchemy
