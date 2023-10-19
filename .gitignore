@@ -22,3 +22,4 @@ java/onnxinference/src/main/resources/rf_fraud_2.with_runtime_opt.ort
 java/onnxinference/src/main/resources/rf_fraud_2.rf_fraud_2.with_runtime_opt.config
 java/onnxinference/src/main/resources/rf_fraud_2.required_operators.with_runtime_opt.config
 java/.idea
+python/test.py

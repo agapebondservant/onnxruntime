@@ -12,7 +12,6 @@
   <build>
     <resources>
       <resource>
-        <filtering>true</filtering>
         <directory>src/main/resources</directory>
       </resource>
     </resources>
@@ -30,7 +29,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>3.1.0</version>
         <configuration>
-          <mainClass>com.vmware.inference.InvokeInference</mainClass>
+          <mainClass>com.vmware.inference.main.InvokeInference</mainClass>
         </configuration>
       </plugin>
       <plugin>
@@ -41,7 +40,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.vmware.inference.InvokeInference</mainClass>
+              <mainClass>com.vmware.inference.main.InvokeInference</mainClass>
             </manifest>
           </archive>
         </configuration>

@@ -9,7 +9,7 @@ import ai.onnxruntime.OrtSession.*;
 import static ai.onnxruntime.OrtSession.Result.*;
 
 public class InferenceService {
-    public Object getInferenceResult(Optional<OnnxValue> outputProba, Optional<OnnxValue> outputLabel) throws Exception {
+    public Map getInferenceResult(Optional<OnnxValue> outputProba, Optional<OnnxValue> outputLabel) throws Exception {
 
         Object returnProba = null, returnLabel = null;
 

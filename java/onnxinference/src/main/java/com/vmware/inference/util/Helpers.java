@@ -3,13 +3,38 @@ package com.vmware.inference.util;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Helpers {
-    public static String getResourcePath(String path, boolean useFullPath) {
-        return useFullPath ?
-                Helpers.class.getClassLoader().getResource(path).toExternalForm() :
-                new File(Helpers.class.getResource(path).getFile()).toPath().toString();
+    static Logger LOGGER = LoggerFactory.getLogger(Helpers.class);
+
+    public static String getResourcePath(String resourcePath, boolean useFullPath) {
+        if (useFullPath) {
+
+            try (InputStream sourceStream = Helpers.class.getResourceAsStream(resourcePath)){
+
+                File target = new File("/tmp/" + resourcePath );
+
+                Files.copy(
+                        sourceStream,
+                        target.toPath(),
+                        StandardCopyOption.REPLACE_EXISTING);
+
+                return target.toPath().toString();
+
+            } catch ( Exception ex ) {
+                LOGGER.error("", ex);
+                return null;
+            }
+        } else {
+            return new File( Helpers.class.getResource(resourcePath).getFile() )
+                    .toPath()
+                    .toString();
+        }
     }
 
     // TODO: Support multiple dimensional arrays
