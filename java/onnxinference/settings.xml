@@ -1,0 +1,9 @@
+<settings>
+    <servers>
+        <server>
+            <id>gemfire-release-repo</id>
+            <username>tanzudemo1@gmail.com</username>
+            <password>Vmware1!</password>
+        </server>
+    </servers>
+</settings>
