@@ -13,7 +13,6 @@ netron </path/to/model>
 Deploy the ONNXInference setuup:
 ```
 source .env
-mvn wrapper:wrapper
 scripts/deploy-gf-onnx-inference.sh
 ```
 
