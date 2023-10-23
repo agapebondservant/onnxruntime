@@ -34,10 +34,10 @@ public class OnnxInferenceFunction implements Function {
             if (rawArguments == null ||
                     !(rawArguments instanceof Object[]) ||
                         ((Object[])rawArguments).length != 2 ) {
-                throw new RuntimeException("Invalid arguments: " + (arguments.length > 0 ? arguments[0] : "NOARGS"));
+                throw new RuntimeException("Invalid arguments: " + (rawArguments==null ? "NO ARGUMENTS SUPPLIED" : rawArguments.toString()));
             }
 
-            String[] arguments = Arrays.stream(rawArguments)
+            String[] arguments = Arrays.stream((Object[]) rawArguments)
                     .map(Object::toString)
                     .toArray(String[]::new);
             sendInferenceResults(arguments, rfc);
