@@ -18,7 +18,8 @@ echo "......................................................................."
 echo "Build and deploy the ONNXInference service..."
 echo "......................................................................."
 cd java/onnxinference
-mvn clean package -f pom-onnx.xml
+envsubst < settings.xml.template > settings.xml
+./mvnw clean package -f pom-onnx.xml -s settings.xml
 kubectl cp ${ML_GEMFIRE_LIB_ONNXSERVICE_JARPATH} ${ML_GEMFIRE_TEST_NS}/${ML_GEMFIRE_POD_1}:/tmp
 kubectl exec -it ${ML_GEMFIRE_POD_1} -n ${ML_GEMFIRE_TEST_NS} -- gfsh -e "connect --locator=${ML_GEMFIRE_LOCATOR_ADDR}[10334]" -e "deploy --jars=/tmp/onnxinference-1.0-SNAPSHOT.jar"
 sleep 5
@@ -29,7 +30,7 @@ echo "......................................................................."
 echo "Build and deploy the Gemfire function..."
 echo "......................................................................."
 cd java/onnxinference
-mvn clean package -f pom-gemfire.xml
+./mvnw clean package -f pom-gemfire.xml -s settings.xml
 kubectl cp ${ML_GEMFIRE_LIB_INFERENCEFUNCTION_JARPATH} ${ML_GEMFIRE_TEST_NS}/${ML_GEMFIRE_POD_1}:/tmp
 kubectl exec -it ${ML_GEMFIRE_POD_1} -n ${ML_GEMFIRE_TEST_NS} -- gfsh -e "connect --locator=${ML_GEMFIRE_LOCATOR_ADDR}[10334]" -e "deploy --jars=/tmp/gemfire-onnx-1.0-SNAPSHOT.jar" -e "list functions"
 sleep 5
@@ -44,7 +45,7 @@ kubectl delete pod gfclient -n${ML_GEMFIRE_TEST_NS} || true
 kubectl run gfclient -n${ML_GEMFIRE_TEST_NS} --labels=app=gfclient --image=tomcat:9.0.82-jdk11-corretto
 kubectl wait --for=condition=ready pod -l app=gfclient -n${ML_GEMFIRE_TEST_NS} --timeout=30s
 kubectl exec -it gfclient -n${ML_GEMFIRE_TEST_NS} -- yum install -y tar
-mvn clean package -f pom-test.xml -Ddeploy.scope=compile
+./mvnw clean package -f pom-test.xml -s settings.xml -Ddeploy.scope=compile
 
 for i in {1..3} # Workaround - run "kubectl cp" multiple times, to workaround failures for larger files
 do

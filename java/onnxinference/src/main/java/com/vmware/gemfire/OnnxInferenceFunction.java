@@ -1,5 +1,6 @@
 package com.vmware.gemfire;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
@@ -29,12 +30,16 @@ public class OnnxInferenceFunction implements Function {
     public void execute(FunctionContext functionContext) {
         if (functionContext instanceof RegionFunctionContext) {
             RegionFunctionContext rfc = (RegionFunctionContext) functionContext;
-
-            String[] arguments = (String[]) rfc.getArguments();
-            if (arguments == null || !(arguments instanceof String[]) || arguments.length != 2 ) {
+            Object rawArguments = rfc.getArguments();
+            if (rawArguments == null ||
+                    !(rawArguments instanceof Object[]) ||
+                        ((Object[])rawArguments).length != 2 ) {
                 throw new RuntimeException("Invalid arguments: " + (arguments.length > 0 ? arguments[0] : "NOARGS"));
             }
 
+            String[] arguments = Arrays.stream(obj)
+                    .map(Object::toString)
+                    .toArray(String[]::new);
             sendInferenceResults(arguments, rfc);
         } else {
             throw new RuntimeException("The function must be executed for partitioned regions");
