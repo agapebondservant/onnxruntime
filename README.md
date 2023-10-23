@@ -19,7 +19,7 @@ scripts/deploy-gf-onnx-inference.sh
 Test the standalone ONNXInference service:
 ```
 cd java/onnxinference
-mvn clean package -f pom-onnx.xml
+mvn clean package -f pom-onnx.xml -Ddeploy.scope=compile
 mvn exec:java -f pom-onnx.xml -Dexec.args="rf_fraud_2.onnx {{20,245,-54.3,192.5}}" # should return without errors
 cd -
 ```
