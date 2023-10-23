@@ -37,7 +37,7 @@ public class OnnxInferenceFunction implements Function {
                 throw new RuntimeException("Invalid arguments: " + (arguments.length > 0 ? arguments[0] : "NOARGS"));
             }
 
-            String[] arguments = Arrays.stream(obj)
+            String[] arguments = Arrays.stream(rawArguments)
                     .map(Object::toString)
                     .toArray(String[]::new);
             sendInferenceResults(arguments, rfc);
